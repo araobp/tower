@@ -1,5 +1,7 @@
 # android-theta
  
+(work in progress)
+
 ## Theta SC
 
 - https://theta360.com/en/about/theta/sc.html
