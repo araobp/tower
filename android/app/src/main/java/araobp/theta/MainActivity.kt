@@ -1,33 +1,59 @@
 package araobp.theta
 
 import android.app.Dialog
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import araobp.theta.api.Operations
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.settings.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mProps: Properties
 
-    private lateinit var mThetaClient: ThetaClient
+    private var mOperations: Operations? = null
+
+    private val mImages = mutableListOf<Bitmap?>(null, null)
+
+    override fun onResume() {
+        super.onResume()
+        mOperations = Operations(this, mProps)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mOperations?.destroy()
+        mOperations = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mProps = Properties(this)
-        mThetaClient = ThetaClient(this, mProps)
 
         buttonCapture.setOnClickListener {
-            mThetaClient.capture()
+            val callback = object : Operations.IPictureCallback {
+                override fun onPictureTaken(bitmap: Bitmap?) {
+                    mImages[0]?.let { prevImg ->
+                        mImages[1] = prevImg
+                        runOnUiThread {
+                            imageView1.setImageBitmap(mImages[1])
+                        }
+                    }
+                    mImages[0] = bitmap
+                    runOnUiThread {
+                        imageView0.setImageBitmap(mImages[0])
+                    }
+                }
+            }
+            mOperations?.takePicture(callback)
         }
 
         buttonSettings.setOnClickListener {
-
             val dialog = Dialog(this)
             dialog.setContentView(R.layout.settings)
 
@@ -39,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
             editTextSSID.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) =
-                    Unit
+                        Unit
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
                 override fun afterTextChanged(p0: Editable?) {
@@ -49,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
             editTextPassword.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) =
-                    Unit
+                        Unit
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
                 override fun afterTextChanged(p0: Editable?) {
@@ -59,8 +85,8 @@ class MainActivity : AppCompatActivity() {
 
             dialog.setOnDismissListener {
                 mProps.save()
-                mThetaClient.destroy()
-                mThetaClient = ThetaClient(this, mProps)
+                mOperations?.destroy()
+                mOperations = Operations(this@MainActivity, mProps)
             }
 
             dialog.show()
