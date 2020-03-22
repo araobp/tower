@@ -14,20 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mProps: Properties
 
+    //private var mOperations: Operations? = null
+
     private var mOperations: Operations? = null
 
+
     private val mImages = mutableListOf<Bitmap?>(null, null)
-
-    override fun onResume() {
-        super.onResume()
-        mOperations = Operations(this, mProps)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mOperations?.destroy()
-        mOperations = null
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,12 +77,12 @@ class MainActivity : AppCompatActivity() {
 
             dialog.setOnDismissListener {
                 mProps.save()
-                mOperations?.destroy()
                 mOperations = Operations(this@MainActivity, mProps)
             }
 
             dialog.show()
         }
 
+        mOperations = Operations(this, mProps)
     }
 }
