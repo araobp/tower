@@ -1,4 +1,4 @@
-# Ricoh Theta
+# RICOH Theta
  
 (work in progress)
 
