@@ -21,14 +21,11 @@ I have got Ricoh Theta SC.
 ## Configuration
 
 [Goal 1]
-
-'''
+```
 [Ricoh Theta SC] --- WiFi --- [Android]
-'''
-
+```
 
 [Goal 2]
-
 ```
                           OpenCV
                           TensorFlow lite
