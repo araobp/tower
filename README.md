@@ -10,7 +10,7 @@ I am also interested in applying Stadia Methods to a web cam for positiong a cer
 
 ## Goal
 
-[Goal 1] Develop a simple Android app to control Theta remotely. This is just to evaluate OSC APIs.
+[Goal 1] Develop a simple Android app to control Theta remotely. This is just to evaluate OSC APIs => Already completed.
 
 [Goal 2] Use Theta as a web cam for broadcasting MotionJPEG.
 
