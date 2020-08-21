@@ -36,7 +36,7 @@ I have got Ricoh Theta SC.
 ## Code
 
 - [OSC API test program on Android](./android)
-- [Web cam](./raspi)
+- [Web cam](./raspi) ... Work in progress
 
 ## References
 
