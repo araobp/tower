@@ -6,6 +6,8 @@
 
 I want to evaluate Ricoh Theta to see if it can be used as a web cam that streams Motion JPEG (MIME type "multipart/x-mixed-replace").
 
+I am also interested in applying Stadia Methods for positiong a certain object by using a web cam.
+
 ## Goal
 
 [Goal 1] Develop a simple Android app to control Theta remotely. This is just to evaluate OSC APIs.
