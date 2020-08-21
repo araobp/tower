@@ -10,7 +10,9 @@ I want to evaluate Ricoh Theta to see if it can be used as a web cam that stream
 
 [Goal 1] Develop a simple Android app to control Theta remotely. This is just to evaluate OSC APIs.
 
-[Goal 2] Use Theta as a web cam.
+[Goal 2] Use Theta as a web cam for broadcasting MotionJPEG.
+
+[Goal 3] Employ Stadia Survey method for 3D positioning of a spherical marker object.
 
 ## RICOH Theta SC and Buffalo webcam
 
@@ -52,3 +54,4 @@ RasPi works as an image archive server and as a web server based on Node.js. I w
 ## References
 
 - [API v2](https://api.ricoh/docs/theta-web-api-v2/)
+- [Stadia methods](https://academic.csuohio.edu/duffy_s/Lab_06.pdf)
