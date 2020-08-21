@@ -33,7 +33,7 @@ I have got Ricoh Theta SC.
 [Ricoh Theta SC] --- USB --- [RasPi] --- WiFi --- [HTML5 browser]
 ```
 
-I will test the following equirectangular image viewer based on HTML5, in the configuation above: 
+I will also test the following equirectangular image viewer based on HTML5, in the configuation above: 
 https://github.com/akokubo/ThetaViewer
 
 ## Code
