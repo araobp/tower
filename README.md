@@ -36,7 +36,7 @@ I will also test this USB web cam from Buffalo:
                             OpenCV
                             TensorFlow lite
                             Node.js
-[Ricoh Theta SC] --- USB --- [RasPi] --- WiFi --- [HTML5 browser]
+[Ricoh Theta SC] --- USB --- [RasPi] --- WiFi --- [HTML5 browser (Chrome on Android or on PC)]
 
 I will also test an USB webcam of FOV 120 degrees instead of Ricoh Theta SC.
 ```
@@ -52,6 +52,11 @@ RasPi works as an image archive server and as a web server based on Node.js. I w
 - Apply OpenCV's color filters to the image to extract a sphere.
 - Measure the size of the sphere.
 - Caliculate relative 3D coordinates (x, y, z) from the camera, then add the height (z axis) of the camera.
+
+## Development environments
+
+- Android Studio (Kotlin)
+- vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
 
 ## Code
 
