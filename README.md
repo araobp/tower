@@ -1,4 +1,4 @@
-# android-theta
+# Ricoh Theta
  
 (work in progress)
 
