@@ -12,11 +12,15 @@ I want to evaluate Ricoh Theta to see if it can be used as a web cam that stream
 
 [Goal 2] Use Theta as a web cam.
 
-## Theta SC
+## RICOH Theta SC and Buffalo webcam
 
 I have got Ricoh Theta SC.
 
 - https://theta360.com/en/about/theta/sc.html
+
+I will also test this USB web cam from Buffalo:
+
+- https://www.buffalo.jp/product/detail/bsw200mbk.html
 
 ## Configuration
 
@@ -27,14 +31,18 @@ I have got Ricoh Theta SC.
 
 [Goal 2]
 ```
-                          OpenCV
-                          TensorFlow lite
-                          Node.js
+                            OpenCV
+                            TensorFlow lite
+                            Node.js
 [Ricoh Theta SC] --- USB --- [RasPi] --- WiFi --- [HTML5 browser]
+
+I will also test an USB webcam of FOV 120 degrees instead of Ricoh Theta SC.
 ```
 
 I will also test the following equirectangular image viewer based on HTML5, in the configuation above: 
 https://github.com/akokubo/ThetaViewer
+
+RasPi works as an image archive server and as a web server based on Node.js. I will also run TensorFlow Lite on RasPi for object detection.
 
 ## Code
 
