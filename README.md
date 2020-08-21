@@ -46,6 +46,13 @@ https://github.com/akokubo/ThetaViewer
 
 RasPi works as an image archive server and as a web server based on Node.js. I will also run TensorFlow Lite on RasPi for object detection.
 
+## Stadia Methods for positioning a certain object
+
+- Use TensorFlow Lite or OpenCV to detect a spherical object in the image.
+- Apply OpenCV's color filters to the image to extract a sphere.
+- Measure the size of the sphere.
+- Caliculate relative 3D coordinates (x, y, z) from the camera, then add the height (z axis) of the camera.
+
 ## Code
 
 - [OSC API test program on Android](./android)
