@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
-#include "broadcast.h"
+#include "broadcaster.h"
 #include "detector.h"
 
 #define PORT 18082

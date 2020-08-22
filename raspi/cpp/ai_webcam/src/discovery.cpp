@@ -107,7 +107,7 @@ int advertise(char *deviceId) {
         (const struct sockaddr *) &advertise_addr,
         sizeof(advertise_addr))) < 0) {
       cerr << "Send error!" << endl;
-    } 
+    }
     std::this_thread::sleep_for(std::chrono::milliseconds(INTERVAL));
     //cout << "..." << endl;
   }

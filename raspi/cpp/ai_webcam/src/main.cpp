@@ -9,7 +9,7 @@
 #include <thread>
 #include <mutex>
 #include "discovery.h"
-#include "broadcast.h"
+#include "broadcaster.h"
 #include "detector.h"
 
 using namespace std;
@@ -18,6 +18,8 @@ using namespace cv;
 #define CAPTURE_INTERVAL 20000  // 20msec
 
 #define BROADCAST_PORT 18082
+
+char LOOPBACK_ADDR[] = "127.0.0.1";
 
 bool proximitySensing = false;
 bool equalize = false;
@@ -33,7 +35,7 @@ thread dr;
 thread cp;
 
 // Broadcast thread 
-char *broadcastAddress = NULL;
+char *broadcasterAddr = LOOPBACK_ADDR;
 char *deviceId = NULL;
 thread br;
 
@@ -42,13 +44,13 @@ float accThres = 0.6;
 int jpegQuality = 50;
 
 // Command line options
-const char optString[] = "b:d:t:pq:esrv";
+const char optString[] = "d:b:t:pq:esrv";
 
 // Display command usage
 void displayUsage(void) {
   cout << "Usage: server [OPTION...]" << endl;
-  cout << "   -b broadcast               broadcast server's IP address" << endl;
   cout << "   -d deviceId                device ID" << endl;
+  cout << "   -b broadcaster             broadcaster's IP address" << endl;
   cout << "   -t threshold               accuracy threshold (%)" << endl;
   cout << "   -p                         proximity sensing" << endl;
   cout << "   -q quality                 JPEG quality (%)" << endl;
@@ -67,7 +69,7 @@ void argparse(int argc, char *argv[]) {
   while ( (opt = getopt(argc, argv, optString)) != -1 ) {
     switch(opt) {
       case 'b':
-        broadcastAddress = optarg;
+        broadcasterAddr = optarg;
         break;
       case 'd':
         deviceId = optarg;
@@ -128,11 +130,8 @@ int main(int argc, char *argv[]) {
 
   // Parse command line arguments
   argparse(argc, argv);
-  if (broadcastAddress == NULL) {
-    cerr << "Broadcast address unset!" << endl;
-    exit(-1);
-  } else if (deviceId == NULL) {
-    cerr << "Device ID must be set!" << endl;
+  if (deviceId == NULL) {
+    cerr << "-d option (Device ID) is mandatory!" << endl;
     exit(-1);
   }
 
@@ -144,11 +143,11 @@ int main(int argc, char *argv[]) {
   cp = thread(process, accThres, verbose);
 
   // Start broadcast in a thread
-  br = thread(broadcast, broadcastAddress, deviceId);
+  br = thread(broadcast, broadcasterAddr, deviceId);
 
   cout << "[Camera unit]" << endl;
   cout << "DeviceId: " << deviceId << endl;
-  cout << "Broadcast server: " << broadcastAddress << endl;
+  cout << "Broadcaster IP address: " << broadcasterAddr << endl;
 
   while(1) {
 

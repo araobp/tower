@@ -127,7 +127,7 @@ void stopProcess() {
 
 void drain(int jpegQuality, bool proximitySensing, bool equalize, bool show, bool record, bool verbose) {
   float distanceRange = calcEstimatedDistance(ANGLE_OF_VIEW, PERSON_HEIGHT_STD, PERSON_HEIGHT_RATIO);
-  cout << "Distance: " << distanceRange << "(m)" << endl;
+  cout << "Distance range: " << distanceRange << "(m)" << endl;
   
   /** Video caputure initialization */
   //cap.set(CV_CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'));  // Motion JPEG
@@ -265,6 +265,7 @@ int process(float accThres, bool verbose) {
   // Load model and label map
   std::unique_ptr<tflite::FlatBufferModel> model;
   std::ifstream ifs;
+  //model = tflite::FlatBufferModel::BuildFromFile(MODEL_FILE);
   model = tflite::FlatBufferModel::BuildFromFile(MODEL_FILE);
   ifs = ifstream(LABEL_FILE);
   if (!model) {
