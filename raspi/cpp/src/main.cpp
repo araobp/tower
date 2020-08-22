@@ -8,6 +8,7 @@
 #include <signal.h>
 #include <thread>
 #include <mutex>
+#include "discovery.h"
 #include "broadcast.h"
 #include "detector.h"
 
@@ -26,6 +27,9 @@ bool equalize = false;
 bool verbose = false;
 bool show = false;
 bool record = false;
+
+// Advertisment thread
+thread ad;
 
 // Capture threads
 thread dr;
@@ -103,8 +107,10 @@ void argparse(int argc, char *argv[]) {
 // Signal handler for keyboard interruput
 void sigHandler(int s) {
   stopBroadcast(); 
+  stopAdvertise();
   stopProcess();
   br.join();
+  ad.join();
   cp.join();
   cout << "Process terminated!" << endl;
   exit(0);
@@ -125,6 +131,9 @@ int main(int argc, char *argv[]) {
 
   // Parse command line arguments
   argparse(argc, argv);
+
+  // Start advertisment in a thread
+  ad = thread(advertise);
 
   // Start capture in a thread
   dr = thread(drain, jpegQuality, proximitySensing, equalize, show, record, verbose);
