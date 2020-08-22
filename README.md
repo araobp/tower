@@ -52,8 +52,10 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 (Work in progress..)
 
 => [AI webcam](./raspi/cpp)
+
 => [Broadcasting server](./raspi/node)
-=> [Advertisement reciever](./android)
+
+=> [Chrome launcher (advertisement reciever)](./android)
 
 ## References
 
