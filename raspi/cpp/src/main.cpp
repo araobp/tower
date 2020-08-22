@@ -19,9 +19,6 @@ using namespace cv;
 
 #define BROADCAST_PORT 18082
 
-#define BUFSIZE 300000  // 300Kbytes
-char jpegArray[BUFSIZE];
-
 bool proximitySensing = false;
 bool equalize = false;
 bool verbose = false;
@@ -131,9 +128,16 @@ int main(int argc, char *argv[]) {
 
   // Parse command line arguments
   argparse(argc, argv);
+  if (broadcastAddress == NULL) {
+    cerr << "Broadcast address unset!" << endl;
+    exit(-1);
+  } else if (deviceId == NULL) {
+    cerr << "Device ID must be set!" << endl;
+    exit(-1);
+  }
 
   // Start advertisment in a thread
-  ad = thread(advertise);
+  ad = thread(advertise, deviceId);
 
   // Start capture in a thread
   dr = thread(drain, jpegQuality, proximitySensing, equalize, show, record, verbose);
@@ -151,5 +155,4 @@ int main(int argc, char *argv[]) {
   }
 
 }
-
 

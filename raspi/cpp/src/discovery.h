@@ -1,2 +1,2 @@
-int advertise();
+int advertise(char *deviceId);
 void stopAdvertise();

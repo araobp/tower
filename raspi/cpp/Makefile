@@ -15,11 +15,11 @@ OBJECTS = $(patsubst src/%.cpp,bin/%.o,$(SRCS))
 
 OBJS = $(wildcard bin/*.o)
 
-bin/server: $(OBJECTS)
+bin/aicam: $(OBJECTS)
 	  $(CXX) $^ $(CXXFLAGS) $(LDFLAGS) -o $@
 
 bin/%.o: src/%.cpp $(HEADERS)
 	  $(CXX) $< $(CXXFLAGS) $(LDFLAGS) -c -o $@
 
 clean:
-	  $(RM) $(OBJS) server 
+	  $(RM) $(OBJS) aicam 

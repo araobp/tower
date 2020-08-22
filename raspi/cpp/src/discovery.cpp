@@ -10,8 +10,8 @@
 #include <thread>
 #include "discovery.h"
 
-#define INTERVAL 500  // 500msec interval
-#define PORT 18090
+#define INTERVAL 500  // Advertisement at 500msec interval
+#define PORT 18084  // Advertisment UDP port
 
 using namespace std;
 
@@ -60,14 +60,13 @@ void stopAdvertise() {
 /**
  * Advertise an IP address of this host. 
  */
-int advertise() {
+int advertise(char *deviceId) {
 
   char advertiseAddr[INET_ADDRSTRLEN];
   in_addr bAddr;
 
   int sockFd = 0;
   struct sockaddr_in advertise_addr; 
-  char camera[] = "camera";
     
   while (1) {
     if (getAdvertiseAddress(&bAddr) == 0) {
@@ -101,10 +100,10 @@ int advertise() {
     return -1;
   }
   
-  // Broadcast camera discovery message at a certain interval
+  // Broadcast ai-webcam discovery message at a certain interval
   advertiseRunning = true;
   while (advertiseRunning) {
-    if ((sendto(sockFd, camera, strlen(camera), MSG_CONFIRM,
+    if ((sendto(sockFd, deviceId, strlen(deviceId), MSG_CONFIRM,
         (const struct sockaddr *) &advertise_addr,
         sizeof(advertise_addr))) < 0) {
       cerr << "Send error!" << endl;
