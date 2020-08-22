@@ -1,4 +1,4 @@
-# RICOH Theta
+# AI webcam
  
 (work in progress)
 
