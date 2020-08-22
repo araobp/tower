@@ -1,0 +1,14 @@
+[Unit]
+Description=AI camera
+After=network.target
+
+[Service]
+ExecStart=/home/pi/bin/aicamera -b 127.0.0.1 -d camera0 -o
+WorkingDirectory=/home/pi/bin
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
