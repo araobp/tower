@@ -5,8 +5,9 @@
 ## Goals
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
-- 
+- Intrusion detection
 - Stadia survey for positioning a person or a certain object
+- Auto discovery of web cam's IP address in a LAN segment
 
 ## USB video cameras
 
@@ -38,9 +39,21 @@ I have got the following cameras supporting UVC:
 
 vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
 
+## IP address auto discovery
+
+The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN. An Android app receives the IP packet and launch Chrome browser with the following URL format:
+
+```
+http://<Advertised IP address>:18082/broadcast/<deviceId>
+```
+
 ## Code
 
-=> [code](./raspi) ... Work in progress
+(Work in progress..)
+
+=> [AI webcam](./raspi/cpp)
+=> [Broadcasting server](./raspi/node)
+=> [Advertisement reciever](./android)
 
 ## References
 
@@ -51,4 +64,4 @@ vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc
 
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV (around 120 degrees).
 
-- [OSC API test program on Android](./android)
+- [OSC API test program on Android](./etc/android)
