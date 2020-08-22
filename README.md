@@ -64,4 +64,4 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV (around 120 degrees).
 
-- [OSC API test program on Android](./etc/android)
+- [OSC API test program on Android](./etc)
