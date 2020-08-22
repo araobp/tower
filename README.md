@@ -2,11 +2,19 @@
  
 (work in progress)
 
-## Buffalo webcam
+## Goals
 
-I have got this webcam from Buffalo:
+- AI webcam: integration with OpenCV and TensorFlow Lite
+- 
+- Stadia survey for positioning a person or a certain object
 
+## USB video cameras
+
+This project supports any UVC video cameras.
+
+I have got the following cameras supporting UVC:
 - https://www.buffalo.jp/product/detail/bsw200mbk.html
+- http://www.sac-corp.jp/product/contents/actioncam/ac200.html
 
 ## Configuration
 
@@ -14,8 +22,9 @@ I have got this webcam from Buffalo:
                                 OpenCV
                                 TensorFlow lite
                                 Node.js
-[UVC video camera ] --- USB --- [RasPi] --- WiFi --- [HTML5 browser (Chrome on Android or on PC)]
-
+[UVC video camera ] --- USB --> [RasPi] --- WiFi --> [HTML5 browser (Chrome on Android or on PC)]
+                                        ---      --> [HTML5 browser (Chrome on Android or on PC)]
+                                        ---      --> [HTML5 browser (Chrome on Android or on PC)]
 ```
 
 ## Stadia Methods for positioning a certain object
