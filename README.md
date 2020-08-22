@@ -1,52 +1,22 @@
-# RICOH Theta
+# AI webcam
  
 (work in progress)
 
-## Motivation
+## Buffalo webcam
 
-I want to evaluate RICOH Theta to see if it can be used as a web cam that streams Motion JPEG (MIME type "multipart/x-mixed-replace").
-
-I am also interested in applying Stadia Methods to a web cam for positiong a certain object in a field.
-
-## Goal
-
-[Goal 1] Develop a simple Android app to control Theta remotely. This is just to evaluate OSC APIs => Already completed.
-
-[Goal 2] Use Theta as a web cam for broadcasting MotionJPEG.
-
-[Goal 3] Employ Stadia Survey method for 3D positioning of a spherical marker object.
-
-## RICOH Theta SC and Buffalo webcam
-
-I have got Ricoh Theta SC.
-
-- https://theta360.com/en/about/theta/sc.html
-
-I will also test this USB web cam from Buffalo:
+I have got this webcam from Buffalo:
 
 - https://www.buffalo.jp/product/detail/bsw200mbk.html
 
 ## Configuration
 
-[Goal 1]
 ```
-[Ricoh Theta SC] --- WiFi --- [Android]
+                                OpenCV
+                                TensorFlow lite
+                                Node.js
+[UVC video camera ] --- USB --- [RasPi] --- WiFi --- [HTML5 browser (Chrome on Android or on PC)]
+
 ```
-
-[Goal 2]
-```
-                            OpenCV
-                            TensorFlow lite
-                            Node.js
-[Ricoh Theta SC] --- USB --- [RasPi] --- WiFi --- [HTML5 browser (Chrome on Android or on PC)]
-
-I will also test an USB webcam of FOV 120 degrees instead of Ricoh Theta SC.
-```
-
-I will also test the following equirectangular image viewer based on HTML5, in the configuation above: 
-https://github.com/akokubo/ThetaViewer
-
-RasPi works as an image archive server and as a web server based on Node.js. I will also run TensorFlow Lite on RasPi for object detection.
 
 ## Stadia Methods for positioning a certain object
 
@@ -57,15 +27,19 @@ RasPi works as an image archive server and as a web server based on Node.js. I w
 
 ## Development environments
 
-- Android Studio (Kotlin)
-- vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
+vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
 
 ## Code
 
-- [OSC API test program on Android](./android)
-- [Web cam](./raspi) ... Work in progress
+=> [code](./raspi) ... Work in progress
 
 ## References
 
 - [API v2](https://api.ricoh/docs/theta-web-api-v2/)
 - [Stadia methods](https://academic.csuohio.edu/duffy_s/Lab_06.pdf)
+
+## Etc
+
+I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV (around 120 degrees).
+
+- [OSC API test program on Android](./android)
