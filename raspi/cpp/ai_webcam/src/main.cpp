@@ -135,6 +135,11 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
+  cout << "[Camera unit]" << endl;
+  cout << "DeviceId: " << deviceId << endl;
+  cout << "Broadcaster IP address: " << broadcasterAddr << endl;
+  cout << endl;
+
   // Start advertisment in a thread
   ad = thread(advertise, deviceId);
 
@@ -144,10 +149,6 @@ int main(int argc, char *argv[]) {
 
   // Start broadcast in a thread
   br = thread(broadcast, broadcasterAddr, deviceId);
-
-  cout << "[Camera unit]" << endl;
-  cout << "DeviceId: " << deviceId << endl;
-  cout << "Broadcaster IP address: " << broadcasterAddr << endl;
 
   while(1) {
 
