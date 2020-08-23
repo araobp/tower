@@ -1,4 +1,4 @@
-# AI webcam
+# AI Webcam
  
 (work in progress)
 
