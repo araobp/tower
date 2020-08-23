@@ -59,7 +59,12 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 
 Sequence diagram
 ```
-  aicam                      broadcaster.js                               Chrome
+  aicam                      broadcaster.js                        Chrome launcher app
+    |                             |                                         |
+    |--- Advertisment UDP packet ------------------------------------------>| -> URL of AI Webcam
+    |              :              |                                         |          |
+                                                                                       |
+  aicam                      broadcaster.js                              Chrome <------+
     |                             |                                         |
     |                             |<--- HTTP GET /broadcast/:deviceid ------|
     |--- HTTP POST image/jpeg --->|                                         |
