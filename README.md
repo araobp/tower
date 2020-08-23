@@ -8,6 +8,7 @@
 - Intrusion detection
 - Stadia survey for positioning a person or a certain object
 - Auto discovery of web cam's IP address in a LAN segment
+- Power management by using an infrared array sensor (=> https://github.com/araobp/arduino-infrared-array-sensor)
 
 ## USB video cameras
 
