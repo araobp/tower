@@ -71,12 +71,6 @@ Sequence diagram
 
                     :                                  :
 ```
-    
-    
-
-
-
-```
 
 ## References
 
