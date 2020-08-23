@@ -51,11 +51,32 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 
 (Work in progress..)
 
-=> [AI webcam](./raspi/cpp)
+=> [aicam (C/C++)](./raspi/cpp)
 
-=> [Broadcasting server](./raspi/node)
+=> [broadcaster.js (node.js)](./raspi/node)
 
-=> [Chrome launcher (advertisement reciever)](./android)
+=> [Chrome launcher (Kotlin/Android)](./android)
+
+Sequence diagram
+```
+  aicam                      broadcaster.js                               Chrome
+    |                             |                                         |
+    |                             |<--- HTTP GET /broadcast/:deviceid ------|
+    |--- HTTP POST image/jpeg --->|                                         |
+    |                             |--- 200 OK multipart/x-mixed-replace --->|
+    |--- HTTP POST image/jpeg --->|                                         |
+    |                             |--- multipart/x-mixed-replace ---------->|
+    |--- HTTP POST image/jpeg --->|                                         |
+    |                             |--- multipart/x-mixed-replace ---------->|
+
+                    :                                  :
+```
+    
+    
+
+
+
+```
 
 ## References
 
