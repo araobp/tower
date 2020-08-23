@@ -44,6 +44,9 @@ app.get('/broadcast/:deviceId', (req, res) => {
     watchers[deviceId] = [res]
   }
 
+
+  console.log(deviceId.toString() + ' connected');
+
   res.writeHead(200, {
       'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
       'Connection': 'keep-alive',

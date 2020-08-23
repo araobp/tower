@@ -61,7 +61,7 @@ void broadcast(char *broadcastAddress, char *deviceId) {
         if (err < 0) { 
           cerr << "Connection failed!" << endl;
         } else {
-          cout << "Connected" << endl;
+          cout << "Connected to broadcaster" << endl;
         }
         usleep(INTERVAL2);
       } while(err < 0);
