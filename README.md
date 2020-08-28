@@ -6,9 +6,8 @@
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
-- Stadia survey for positioning a person or a certain object
 - Auto discovery of web cam's IP address in a LAN segment
-- Power management by using an infrared array sensor (=> https://github.com/araobp/arduino-infrared-array-sensor)
+- Power management
 
 ## USB video cameras
 
@@ -28,13 +27,6 @@ I have got the following cheap cameras supporting UVC:
                                         ---      --> [HTML5 browser (Chrome on Android or on PC)]
                                         ---      --> [HTML5 browser (Chrome on Android or on PC)]
 ```
-
-## Stadia Methods for positioning a certain object
-
-- Use TensorFlow Lite or OpenCV to detect a spherical object in the image.
-- Apply OpenCV's color filters to the image to extract a sphere.
-- Measure the size of the sphere.
-- Caliculate relative 3D coordinates (x, y, z) from the camera, then add the height (z axis) of the camera.
 
 ## Development environments
 
@@ -77,11 +69,6 @@ Sequence diagram
 
                     :                                  :
 ```
-
-## References
-
-- [API v2](https://api.ricoh/docs/theta-web-api-v2/)
-- [Stadia methods](https://academic.csuohio.edu/duffy_s/Lab_06.pdf)
 
 ## Etc
 
