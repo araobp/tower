@@ -39,8 +39,6 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 
 ## Code
 
-(Work in progress..)
-
 => [aicam (C/C++)](./raspi/cpp)
 
 => [broadcaster.js (node.js)](./raspi/node)
