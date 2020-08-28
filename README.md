@@ -1,13 +1,10 @@
 # AI Webcam
  
-(work in progress)
-
 ## Goals
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
 - Auto discovery of web cam's IP address in a LAN segment
-- Power management
 
 ## USB video cameras
 
