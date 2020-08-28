@@ -67,6 +67,6 @@ Sequence diagram
 
 ## Etc
 
-I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV (around 120 degrees).
+I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
 - [OSC API test program on Android](./etc)
