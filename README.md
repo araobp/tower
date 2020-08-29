@@ -14,8 +14,8 @@
 This project supports any UVC video cameras.
 
 I have got the following cheap cameras supporting UVC:
-- https://www.buffalo.jp/product/detail/bsw200mbk.html
-- http://www.sac-corp.jp/product/contents/actioncam/ac200.html
+- https://www.buffalo.jp/product/detail/bsw200mbk.html (FOV 120 degrees horizontal)
+- http://www.sac-corp.jp/product/contents/actioncam/ac200.html (FOV 78 degrees horizontal/ 46 degrees vertical)
 
 ## Configuration
 
