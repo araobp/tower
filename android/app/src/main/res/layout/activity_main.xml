@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6F8E4B"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="#1F676E"
+        android:background="#101819"
         android:textColor="#FFEB3B"
         app:layout_constraintBottom_toTopOf="@+id/buttonLaunch"
         app:layout_constraintEnd_toEndOf="parent"
