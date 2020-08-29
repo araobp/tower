@@ -1,14 +1,11 @@
 # AI Webcam
  
-(work in progress)
-
 ## Goals
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
-- Stadia survey for positioning a person or a certain object
+- Integration with OpenALPR supporting Japanese license plates
 - Auto discovery of web cam's IP address in a LAN segment
-- Power management by using an infrared array sensor (=> https://github.com/araobp/arduino-infrared-array-sensor)
 
 ## USB video cameras
 
@@ -29,13 +26,6 @@ I have got the following cheap cameras supporting UVC:
                                         ---      --> [HTML5 browser (Chrome on Android or on PC)]
 ```
 
-## Stadia Methods for positioning a certain object
-
-- Use TensorFlow Lite or OpenCV to detect a spherical object in the image.
-- Apply OpenCV's color filters to the image to extract a sphere.
-- Measure the size of the sphere.
-- Caliculate relative 3D coordinates (x, y, z) from the camera, then add the height (z axis) of the camera.
-
 ## Development environments
 
 vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
@@ -49,8 +39,6 @@ http://<Advertised IP address>:18082/broadcast/<deviceId>
 ```
 
 ## Code
-
-(Work in progress..)
 
 => [aicam (C/C++)](./raspi/cpp)
 
@@ -78,13 +66,14 @@ Sequence diagram
                     :                                  :
 ```
 
-## References
-
-- [API v2](https://api.ricoh/docs/theta-web-api-v2/)
-- [Stadia methods](https://academic.csuohio.edu/duffy_s/Lab_06.pdf)
-
 ## Etc
 
-I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV (around 120 degrees).
+I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
 - [OSC API test program on Android](./etc)
+
+## References
+
+- [Parking (this is my project four years ago)](https://github.com/araobp/parking)
+- [OpenALPR](https://github.com/openalpr/openalpr)
+- [alpr_jp](https://github.com/dyama/alpr_jp)
