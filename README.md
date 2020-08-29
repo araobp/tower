@@ -1,5 +1,7 @@
 # AI Webcam
  
+ <img src="./doc/uvc_camera.png" width=200px>
+ 
 ## Goals
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
