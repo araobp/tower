@@ -2,11 +2,12 @@
  
  <img src="./doc/uvc_camera.png" width=200px>
  
-## Goals
+## Features
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
 - Auto discovery of web cam's IP address in a LAN segment
+- MotionJPEG broadcasting server
 
 ## USB video cameras
 
