@@ -74,4 +74,6 @@ I tested OSC API supported by RICOH Theta, but this project just requires a simp
 
 ## References
 
+- [Parking (this is my project four years ago)](https://github.com/araobp/parking)
+- [OpenALPR](https://github.com/openalpr/openalpr)
 - [alpr_jp](https://github.com/dyama/alpr_jp)
