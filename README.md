@@ -6,7 +6,6 @@
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
-- Integration with OpenALPR supporting Japanese license plates
 - Auto discovery of web cam's IP address in a LAN segment
 
 ## USB video cameras
@@ -73,9 +72,3 @@ Sequence diagram
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
 - [OSC API test program on Android](./etc)
-
-## References
-
-- [Parking (this is my project four years ago)](https://github.com/araobp/parking)
-- [OpenALPR](https://github.com/openalpr/openalpr)
-- [alpr_jp](https://github.com/dyama/alpr_jp)
