@@ -40,7 +40,6 @@ const int alertThicknessHalf = ALERT_THICKNESS/2;
 // Distance estimation
 #define PERSON_HEIGHT_STD 170  // cm
 #define PERSON_WIDTH_STD 70  // cm
-#define ANGLE_OF_VIEW 67 // degrees
 #define PERSON_HEIGHT_RATIO 25 // %
 const int personMinHeightInPixels = PERSON_HEIGHT_RATIO * JPEG_HEIGHT / 100.0;  
 const int personMinWidthInPixels = personMinHeightInPixels * PERSON_WIDTH_STD / PERSON_HEIGHT_STD; 
@@ -125,8 +124,8 @@ void stopProcess() {
   cap.release();
 }
 
-void drain(int jpegQuality, bool proximitySensing, bool equalize, bool show, bool record, bool verbose) {
-  float distanceRange = calcEstimatedDistance(ANGLE_OF_VIEW, PERSON_HEIGHT_STD, PERSON_HEIGHT_RATIO);
+void drain(int jpegQuality, bool proximitySensing, bool equalize, bool show, bool record, int angleOfView, bool verbose) {
+  float distanceRange = calcEstimatedDistance(angleOfView, PERSON_HEIGHT_STD, PERSON_HEIGHT_RATIO);
   cout << "Distance range: " << distanceRange << "(m)" << endl;
   
   /** Video caputure initialization */
@@ -207,7 +206,7 @@ void drain(int jpegQuality, bool proximitySensing, bool equalize, bool show, boo
             R = 255;
             thickness = 3;
             personDetected = true;
-            distance = calcEstimatedDistance(ANGLE_OF_VIEW, PERSON_HEIGHT_STD,
+            distance = calcEstimatedDistance(angleOfView, PERSON_HEIGHT_STD,
                 JPEG_HEIGHT, areaHeight);
             label += " " + std::to_string(distance).substr(0,4) + "m";
           } else {
