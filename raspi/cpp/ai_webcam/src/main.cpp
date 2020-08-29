@@ -19,6 +19,8 @@ using namespace cv;
 
 #define BROADCAST_PORT 18082
 
+#define ANGLE_OF_VIEW 46  // camera's vertical FOV in degrees
+
 char LOOPBACK_ADDR[] = "127.0.0.1";
 
 bool proximitySensing = false;
@@ -43,8 +45,11 @@ thread br;
 float accThres = 0.6;
 int jpegQuality = 50;
 
+// Camera's vertical FOV
+int angleOfView = ANGLE_OF_VIEW;
+
 // Command line options
-const char optString[] = "d:b:t:pq:esrv";
+const char optString[] = "d:b:t:pq:esra:v";
 
 // Display command usage
 void displayUsage(void) {
@@ -57,6 +62,7 @@ void displayUsage(void) {
   cout << "   -e                         histgram equalization" << endl;
   cout << "   -s                         show image" << endl;
   cout << "   -r                         record video" << endl;
+  cout << "   -a angleOfView             angle of view" << endl;
   cout << "   -v                         verbose output" << endl;
 }
 
@@ -91,6 +97,9 @@ void argparse(int argc, char *argv[]) {
         break;
       case 'r':
         record = true;
+        break;
+      case 'a':
+        angleOfView = atoi(optarg);
         break;
       case 'v':
         verbose = true;
@@ -144,7 +153,7 @@ int main(int argc, char *argv[]) {
   ad = thread(advertise, deviceId);
 
   // Start capture in a thread
-  dr = thread(drain, jpegQuality, proximitySensing, equalize, show, record, verbose);
+  dr = thread(drain, jpegQuality, proximitySensing, equalize, show, record, angleOfView, verbose);
   cp = thread(process, accThres, verbose);
 
   // Start broadcast in a thread

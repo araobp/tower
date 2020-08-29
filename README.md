@@ -1,19 +1,21 @@
 # AI Webcam
  
-## Goals
+ <img src="./doc/uvc_camera.png" width=200px>
+ 
+## Features
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
 - Intrusion detection
-- Integration with OpenALPR supporting Japanese license plates
 - Auto discovery of web cam's IP address in a LAN segment
+- MotionJPEG broadcasting server
 
 ## USB video cameras
 
 This project supports any UVC video cameras.
 
 I have got the following cheap cameras supporting UVC:
-- https://www.buffalo.jp/product/detail/bsw200mbk.html
-- http://www.sac-corp.jp/product/contents/actioncam/ac200.html
+- https://www.buffalo.jp/product/detail/bsw200mbk.html (FOV 120 degrees horizontal)
+- http://www.sac-corp.jp/product/contents/actioncam/ac200.html (FOV 78 degrees horizontal/ 46 degrees vertical)
 
 ## Configuration
 
@@ -71,9 +73,3 @@ Sequence diagram
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
 - [OSC API test program on Android](./etc)
-
-## References
-
-- [Parking (this is my project four years ago)](https://github.com/araobp/parking)
-- [OpenALPR](https://github.com/openalpr/openalpr)
-- [alpr_jp](https://github.com/dyama/alpr_jp)
