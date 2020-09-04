@@ -35,10 +35,28 @@ vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc
 
 ## IP address auto discovery
 
-The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN. An Android app receives the IP packet and launch Chrome browser with the following URL format:
+The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN. An Android app receives the IP packet and launch Chrome browser with the following URL format: http://<Advertised IP address>:18082/broadcast/<deviceId>
 
 ```
-http://<Advertised IP address>:18082/broadcast/<deviceId>
+
+  Web cam          Launcher app on Android
+     |                      |
+     |----- UDP 18084 ----->|
+     |                      |
+     |----- UDP 18084 ----->|
+     |                      |
+     |----- UDP 18084 ----->| http://<Advertised IP address>:18082/broadcast/<deviceId>
+     |                      |
+                            |
+                            |
+ Motion JPEG broadcaster    |
+     |                      |
+     |<---- HTTP GET -------|
+     |---- Motion JPEG ---->|
+     |---- Motion JPEG ---->|
+     |---- Motion JPEG ---->|
+     |         :            |
+     
 ```
 
 ## Code
