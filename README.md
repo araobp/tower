@@ -17,7 +17,7 @@ This is a sensor tower for IoT:
 
 ## Tower
 
-The tower consists of a water pipe sitting vertically and platforms on which sensors are mounted:
+The tower consists of a PVC water pipe sitting vertically and platforms on which sensors are mounted:
 
 ```
       | | [AI webcam}
