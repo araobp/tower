@@ -1,6 +1,6 @@
 # Sensor tower
 
-This is a sensor tower like a broadcasting tower:
+This is a sensor tower for IoT:
 
 - Wireless IoT
 - AI camera
