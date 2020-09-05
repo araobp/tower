@@ -1,7 +1,11 @@
-# AI Webcam
- 
- <img src="./doc/uvc_camera.png" width=200px>
- 
+# Sensor tower
+
+This is a sensor tower like a broadcasting tower:
+
+- Wireless IoT
+- AI camera
+- Sensors
+
 ## Features
 
 - AI webcam: integration with OpenCV and TensorFlow Lite
@@ -10,7 +14,31 @@
 - MotionJPEG broadcasting server
 - Optional features: low-power wireless, temperature/humidity sensor etc..
 
-## USB video cameras
+## Tower
+
+The tower consists of a water pipe sitting vertically and platforms on which sensors are mounted:
+
+```
+      | | [AI webcam}
+    -------
+      | |
+      | | [Sensor2]
+    -------
+      | |
+      | | [Sensor1]
+    -------
+      | |
+      | |
+      | |
+```
+
+=> [Platforms](./blender)
+
+## AI Webcam
+ 
+ <img src="./doc/uvc_camera.png" width=200px>
+ 
+### USB video cameras
 
 This project supports any UVC video cameras.
 
@@ -18,7 +46,7 @@ I have got the following cheap cameras supporting UVC:
 - https://www.buffalo.jp/product/detail/bsw200mbk.html (FOV 120 degrees horizontal)
 - http://www.sac-corp.jp/product/contents/actioncam/ac200.html (FOV 78 degrees horizontal/ 46 degrees vertical)
 
-## Configuration
+### Configuration
 
 ```
                                 OpenCV
@@ -29,11 +57,11 @@ I have got the following cheap cameras supporting UVC:
                                         ---      --> [HTML5 browser (Chrome on Android or on PC)]
 ```
 
-## Development environments
+### Development environments
 
 vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc)
 
-## IP address auto discovery
+### IP address auto discovery
 
 The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN. An Android app receives the IP packet and launch Chrome browser with the following URL format: 
 
@@ -64,7 +92,7 @@ Message sequence diagram:
      
 ```
 
-## Code
+### Code
 
 => [aicam (C/C++)](./raspi/cpp)
 
@@ -92,7 +120,7 @@ Sequence diagram
                     :                                  :
 ```
 
-## Etc
+### Etc
 
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
