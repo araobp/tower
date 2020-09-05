@@ -13,6 +13,7 @@ This is a sensor tower for IoT:
 - Auto discovery of web cam's IP address in a LAN segment
 - MotionJPEG broadcasting server
 - Optional features: low-power wireless, temperature/humidity sensor etc..
+- ALPR???
 
 ## Tower
 
