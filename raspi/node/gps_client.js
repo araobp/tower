@@ -1,12 +1,13 @@
 const request = require('request');
-const URL = 'http://192.168.57.2:18082/sensor/camera0';
+const URL = 'http://127.0.0.1:18082/sensor/aicam';
 const options = {
   method: 'POST',
 };
 
 var SerialPort = require('serialport');
 var Readline = SerialPort.parsers.Readline;
-const DEVICE = '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DJ00LUHR-if00-port0';
+//const DEVICE = '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DJ00LUHR-if00-port0';
+const DEVICE = '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DJ00LTN7-if00-port0'
 
 let seaLevel = 0;
 let geoid = 0;
