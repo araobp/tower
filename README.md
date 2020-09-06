@@ -22,9 +22,9 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
 
 ```
 
-  [AI Webcam]
+   [AI Webcam]
       | |
-      | | [Zigbee (TWELITE) antenna] < - - - - - IEEE802.14.3 - - - - - > [Wearable sensors]
+      | | [Zigbee (TWELITE) antenna] < - - - - - IEEE802.14.3 (~100m) - - - - - > [Other IoT devices]
     -------
       | |
       | | [GPS]
@@ -33,7 +33,7 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
       | | [Sensors]
     -------
       | |
-      | |
+      | | [Raspberry Pi 3]
       | |
      /   \
     /     \
