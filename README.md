@@ -113,14 +113,14 @@ Message sequence diagram:
 
 Sequence diagram
 ```
-  aicam                      broadcaster.js                        Chrome launcher app
+Linux host                   broadcaster.js                        Chrome launcher app
     |                             |                                         |
     |--- Advertisment UDP packet ------------------------------------------>| -> URL of AI Webcam
     |              :              |                                         |          |
                                                                                        |
   aicam                      broadcaster.js                              Chrome <------+
     |                             |                                         |
-    |                             |<--- HTTP GET /broadcast/:deviceid ------|
+    |                             |<--- HTTP GET /broadcast/:serviceid -----|
     |--- HTTP POST image/jpeg --->|                                         |
     |                             |--- 200 OK multipart/x-mixed-replace --->|
     |--- HTTP POST image/jpeg --->|                                         |
