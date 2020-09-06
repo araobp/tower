@@ -4,6 +4,7 @@ This is a sensor tower for IoT:
 
 - Wireless IoT
 - AI camera
+- GPS
 - Sensors
 
 ## Features
@@ -20,17 +21,24 @@ This is a sensor tower for IoT:
 The tower consists of a PVC water pipe sitting vertically and platforms on which sensors are mounted:
 
 ```
-      | | [AI webcam}
-    -------
+
+[AI Webcam]
       | |
-      | | [Sensor2]
+      | | [GPS]
     -------
       | |
       | | [Sensor1]
     -------
       | |
+      | | [Sensor2]
+    -------
       | |
       | |
+      | |
+     /   \
+    /     \
+~~~~~~~~~~~~~~~~
+
 ```
 
 => [Platforms](./blender)
