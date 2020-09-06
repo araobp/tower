@@ -41,7 +41,8 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
 
 ```
 
-=> [Platforms](./blender)
+- [panhead](./blender/panhead.stl)
+- [hook](./blender/hook.stl)
 
 ## AI Webcam
  
