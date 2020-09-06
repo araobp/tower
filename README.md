@@ -24,13 +24,13 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
 
   [AI Webcam]
       | |
+      | | [Zigbee (TWELITE) antenna] < - - - - - IEEE802.14.3 - - - - - > [Wearable sensors]
+    -------
+      | |
       | | [GPS]
     -------
       | |
-      | | [Sensor1]
-    -------
-      | |
-      | | [Sensor2]
+      | | [Sensors]
     -------
       | |
       | |
