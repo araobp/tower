@@ -67,10 +67,6 @@ parser.on('data', data => {
     console.log('velocity: ', velocity);
     console.log('direction: ', direction);
 
-    latitude = '139.748101';
-    longitude = '35.649545';
-    seaLevel = 5;
-    geoid = 10;
     options.url = URL + '?longitude=' + ew + longitude + '&latitude=' + ns + latitude + '&sealevel=' + seaLevel + '&geoid=' + geoid + '&datetime=' + hmsJST; 
 
     request(options, (err, res, body) => {
