@@ -22,7 +22,7 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
 
 ```
 
-[AI Webcam]
+  [AI Webcam]
       | |
       | | [GPS]
     -------
