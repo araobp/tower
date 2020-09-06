@@ -131,7 +131,13 @@ Linux host                   broadcaster.js                        Chrome launch
                     :                                  :
 ```
 
-### Etc
+### References
+
+#### Tokyo tower
+
+[Tokyo tower](https://www.tokyotower.co.jp/en/)
+
+#### OSC API
 
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 
