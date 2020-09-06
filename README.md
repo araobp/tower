@@ -120,7 +120,7 @@ Linux host                   broadcaster.js                        Chrome launch
                                                                                        |
   aicam                      broadcaster.js                              Chrome <------+
     |                             |                                         |
-    |                             |<--- HTTP GET /broadcast/:serviceid -----|
+    |                             |<--- HTTP GET /broadcast/:serviceId -----|
     |--- HTTP POST image/jpeg --->|                                         |
     |                             |--- 200 OK multipart/x-mixed-replace --->|
     |--- HTTP POST image/jpeg --->|                                         |
