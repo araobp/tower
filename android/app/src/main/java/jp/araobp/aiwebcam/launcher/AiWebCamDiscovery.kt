@@ -6,7 +6,6 @@ import android.util.Log
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.SocketTimeoutException
-import java.security.KeyStore
 import kotlin.concurrent.thread
 
 class AiWebCamDiscovery(val context: Context) {
@@ -23,7 +22,7 @@ class AiWebCamDiscovery(val context: Context) {
 
     fun discover(callback: IDiscoveryCallback) {
         thread {
-            var deviceId = ""
+            var serviceId = ""
             var serverIpAddress = ""
             var err = true
 
@@ -41,7 +40,7 @@ class AiWebCamDiscovery(val context: Context) {
                 try {
                     datagramSocket.receive(dp)
                     datagramSocket.close()
-                    deviceId = String(buf, 0, buf.size)
+                    serviceId = String(buf, 0, buf.size)
                     serverIpAddress = dp.address.hostAddress
                     Log.d(TAG, "AI Webcam discovered at $serverIpAddress")
                     err = false
@@ -55,7 +54,7 @@ class AiWebCamDiscovery(val context: Context) {
                 Log.d(TAG, "Multicast lock acquisition failed")
             }
 
-            callback.onResult(err, "http://$serverIpAddress:$AI_WEBCAM_PORT/broadcast/$deviceId")
+            callback.onResult(err, "http://$serverIpAddress:$AI_WEBCAM_PORT/broadcast/$serviceId")
         }
     }
 }
