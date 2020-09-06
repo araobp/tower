@@ -76,10 +76,11 @@ app.post('/broadcast/:deviceId', (req, res) => {
   }
 });
 
-app.post('/sensor/:deviceId', (req, res) => {
+app.post('/sensor/:deviceId/gps', (req, res) => {
   let deviceId = req.params.deviceId;
   let latitude = req.query.latitude;
   let longitude = req.query.longitude;
+  let numSatelites = req.query.numSatelites;
   let seaLevel = req.query.sealevel;
   let geoid = req.query.geoid;
   let hmsJST = req.query.datetime;
