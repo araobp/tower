@@ -105,7 +105,9 @@ Message sequence diagram:
 
 => [aicam (C/C++)](./raspi/cpp)
 
-=> [broadcaster.js (node.js)](./raspi/node)
+=> [broadcaster.js (node.js)](./raspi/node/broadcaster.js)
+
+=> [gps.js (node.js)](./raspi/node/gps.js)
 
 => [Chrome launcher (Kotlin/Android)](./android)
 
