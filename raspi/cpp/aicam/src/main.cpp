@@ -34,7 +34,7 @@ thread cp;
 
 // Broadcast thread 
 char *broadcasterAddr = LOOPBACK_ADDR;
-char *deviceId = NULL;
+char *serviceId = NULL;
 thread br;
 
 // Object detection accuracy threshold
@@ -45,18 +45,18 @@ int jpegQuality = 50;
 int angleOfView = ANGLE_OF_VIEW;
 
 // Command line options
-const char optString[] = "d:b:t:pq:esra:v";
+const char optString[] = "s:b:t:pq:eSra:v";
 
 // Display command usage
 void displayUsage(void) {
   cout << "Usage: server [OPTION...]" << endl;
-  cout << "   -d deviceId                device ID" << endl;
+  cout << "   -s serviceId               service ID" << endl;
   cout << "   -b broadcaster             broadcaster's IP address" << endl;
   cout << "   -t threshold               accuracy threshold (%)" << endl;
   cout << "   -p                         proximity sensing" << endl;
   cout << "   -q quality                 JPEG quality (%)" << endl;
   cout << "   -e                         histgram equalization" << endl;
-  cout << "   -s                         show image" << endl;
+  cout << "   -S                         show image" << endl;
   cout << "   -r                         record video" << endl;
   cout << "   -a angleOfView             angle of view" << endl;
   cout << "   -v                         verbose output" << endl;
@@ -73,8 +73,8 @@ void argparse(int argc, char *argv[]) {
       case 'b':
         broadcasterAddr = optarg;
         break;
-      case 'd':
-        deviceId = optarg;
+      case 's':
+        serviceId = optarg;
         break;
       case 't':
         accThres = atoi(optarg) / 100.0;
@@ -88,7 +88,7 @@ void argparse(int argc, char *argv[]) {
       case 'e':
         equalize = true;
         break;
-      case 's':
+      case 'S':
         show = true;
         break;
       case 'r':
@@ -133,13 +133,13 @@ int main(int argc, char *argv[]) {
 
   // Parse command line arguments
   argparse(argc, argv);
-  if (deviceId == NULL) {
+  if (serviceId == NULL) {
     cerr << "-d option (Device ID) is mandatory!" << endl;
     exit(-1);
   }
 
   cout << "[Camera unit]" << endl;
-  cout << "DeviceId: " << deviceId << endl;
+  cout << "DeviceId: " << serviceId << endl;
   cout << "Broadcaster IP address: " << broadcasterAddr << endl;
   cout << endl;
 
@@ -148,7 +148,7 @@ int main(int argc, char *argv[]) {
   cp = thread(process, accThres, verbose);
 
   // Start broadcast in a thread
-  br = thread(broadcast, broadcasterAddr, deviceId);
+  br = thread(broadcast, broadcasterAddr, serviceId);
 
   while(1) {
 
