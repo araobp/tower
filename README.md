@@ -72,10 +72,10 @@ vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc
 
 ### IP address auto discovery
 
-The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN by using ["very simple service discovery protocol"](https://github.com/araobp/service-discovery). An Android app receives the IP packet and launch Chrome browser with the following URL format: 
+The web cam advertise IP address and a service ID of its own on UDP port 18084 periodically to the LAN by using ["very simple service discovery protocol"](https://github.com/araobp/service-discovery). An Android app receives the IP packet and launch Chrome browser with the following URL format: 
 
 ```
-http://<Advertised IP address>:18082/broadcast/<deviceId>
+http://<Advertised IP address>:18082/broadcast/<serviceId>
 ```
 
 Message sequence diagram:
@@ -87,7 +87,7 @@ Message sequence diagram:
      |                      |
      |----- UDP 18084 ----->|
      |                      |
-     |----- UDP 18084 ----->| http://<Advertised IP address>:18082/broadcast/<deviceId>
+     |----- UDP 18084 ----->| http://<Advertised IP address>:18082/broadcast/<serviceId>
      |                      |
                             |
                             |
