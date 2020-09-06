@@ -4,6 +4,7 @@ This is a sensor tower for IoT:
 
 - Wireless IoT
 - AI camera
+- GPS
 - Sensors
 
 ## Features
@@ -20,17 +21,24 @@ This is a sensor tower for IoT:
 The tower consists of a PVC water pipe sitting vertically and platforms on which sensors are mounted:
 
 ```
-      | | [AI webcam}
-    -------
+
+  [AI Webcam]
       | |
-      | | [Sensor2]
+      | | [GPS]
     -------
       | |
       | | [Sensor1]
     -------
       | |
+      | | [Sensor2]
+    -------
       | |
       | |
+      | |
+     /   \
+    /     \
+~~~~~~~~~~~~~~~~
+
 ```
 
 => [Platforms](./blender)
@@ -64,10 +72,10 @@ vi for Node.js, OpenCV and TensorFlow Lite (HTML5, javascript and C/C++ with gcc
 
 ### IP address auto discovery
 
-The web cam advertise IP address and a device ID of its own on UDP port 18084 periodically to the LAN. An Android app receives the IP packet and launch Chrome browser with the following URL format: 
+The web cam advertise IP address and a service ID of its own on UDP port 18084 periodically to the LAN by using ["very simple service discovery protocol"](https://github.com/araobp/service-discovery). An Android app receives the IP packet and launch Chrome browser with the following URL format: 
 
 ```
-http://<Advertised IP address>:18082/broadcast/<deviceId>
+http://<Advertised IP address>:18082/broadcast/<serviceId>
 ```
 
 Message sequence diagram:
@@ -79,7 +87,7 @@ Message sequence diagram:
      |                      |
      |----- UDP 18084 ----->|
      |                      |
-     |----- UDP 18084 ----->| http://<Advertised IP address>:18082/broadcast/<deviceId>
+     |----- UDP 18084 ----->| http://<Advertised IP address>:18082/broadcast/<serviceId>
      |                      |
                             |
                             |
@@ -97,20 +105,22 @@ Message sequence diagram:
 
 => [aicam (C/C++)](./raspi/cpp)
 
-=> [broadcaster.js (node.js)](./raspi/node)
+=> [broadcaster.js (javascript/node.js)](./raspi/node/broadcaster.js)
+
+=> [gps.js (javascript/node.js)](./raspi/node/gps.js)
 
 => [Chrome launcher (Kotlin/Android)](./android)
 
 Sequence diagram
 ```
-  aicam                      broadcaster.js                        Chrome launcher app
+Linux host                   broadcaster.js                        Chrome launcher app
     |                             |                                         |
     |--- Advertisment UDP packet ------------------------------------------>| -> URL of AI Webcam
     |              :              |                                         |          |
                                                                                        |
   aicam                      broadcaster.js                              Chrome <------+
     |                             |                                         |
-    |                             |<--- HTTP GET /broadcast/:deviceid ------|
+    |                             |<--- HTTP GET /broadcast/:serviceId -----|
     |--- HTTP POST image/jpeg --->|                                         |
     |                             |--- 200 OK multipart/x-mixed-replace --->|
     |--- HTTP POST image/jpeg --->|                                         |
@@ -121,7 +131,13 @@ Sequence diagram
                     :                                  :
 ```
 
-### Etc
+### References
+
+#### Tokyo tower
+
+[Tokyo tower](https://www.tokyotower.co.jp/en/)
+
+#### OSC API
 
 I tested OSC API supported by RICOH Theta, but this project just requires a simple UVC camera with a wider FOV.
 

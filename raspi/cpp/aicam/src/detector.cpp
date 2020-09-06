@@ -228,7 +228,9 @@ void drain(int jpegQuality, bool proximitySensing, bool equalize, bool show, boo
       //>>>
 
       // Minimum person height
-      cv::rectangle(mat, X1Y1, X2Y2, white, 1);
+      if (proximitySensing) {
+        cv::rectangle(mat, X1Y1, X2Y2, white, 1);
+      }
 
       if (show) {
         imshow("camera", mat);

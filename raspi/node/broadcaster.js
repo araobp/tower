@@ -22,30 +22,28 @@ function sendResp(res, err, doc) {
 let watchers = {};
 const BOUNDARY = "broadcaster";
 
-let devices = {};
-
-app.get('/broadcast/:deviceId', (req, res) => {
-	let deviceId = req.params.deviceId;
+app.get('/broadcast/:serivceId', (req, res) => {
+	let serivceId = req.params.serivceId;
 
   res.on('close', () => {
-    if (deviceId in watchers) {
-      console.log("A watcher of " + deviceId.toString() + " is closed");
-      watchers[deviceId] = watchers[deviceId].filter ( v => res !== v );
-      if (watchers[deviceId].length == 0) {
-        delete watchers.deviceId;
-        console.log(deviceId.toString() + ' has no watchers');
+    if (serivceId in watchers) {
+      console.log("A watcher of " + serivceId.toString() + " is closed");
+      watchers[serivceId] = watchers[serivceId].filter ( v => res !== v );
+      if (watchers[serivceId].length == 0) {
+        delete watchers.serivceId;
+        console.log(serivceId.toString() + ' has no watchers');
       }
     }
   });
 
-  if (deviceId in watchers) {
-    watchers[deviceId].push(res);
+  if (serivceId in watchers) {
+    watchers[serivceId].push(res);
   } else {
-    watchers[deviceId] = [res]
+    watchers[serivceId] = [res]
   }
 
 
-  console.log(deviceId.toString() + ' connected');
+  console.log(serivceId.toString() + ' connected');
 
   res.writeHead(200, {
       'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
@@ -57,14 +55,14 @@ app.get('/broadcast/:deviceId', (req, res) => {
   });
 });
 
-app.post('/broadcast/:deviceId', (req, res) => {
-  let deviceId = req.params.deviceId;
+app.post('/broadcast/:serivceId', (req, res) => {
+  let serivceId = req.params.serivceId;
   sendResp(res, false, null);
 
   // Broadcast the JPEG image to all the watchers
   let buf = req.body;
-	if (deviceId in watchers) {
-    let l = watchers[deviceId];
+	if (serivceId in watchers) {
+    let l = watchers[serivceId];
     l.forEach( r => {
       r.write(`--${BOUNDARY}\r\n`);
       r.write('Content-Type: image/jpeg\r\n');
@@ -76,16 +74,20 @@ app.post('/broadcast/:deviceId', (req, res) => {
   }
 });
 
-app.post('/sensor/:deviceId', (req, res) => {
-  let deviceId = req.params.deviceId;
+app.post('/sensor/:serivceId/gps', (req, res) => {
+  let serivceId = req.params.serivceId;
   let latitude = req.query.latitude;
   let longitude = req.query.longitude;
+  let numSatelites = req.query.numSatelites;
   let seaLevel = req.query.sealevel;
   let geoid = req.query.geoid;
   let hmsJST = req.query.datetime;
-  devices[deviceId] = req.query; 
-  console.log(devices);
+  console.log(req.query);
   sendResp(res, false, null);
+});
+
+app.get('/sensor/:serviceId/gps', (req, res) => {
+  // TODO
 });
 
 // Start this broadcaster
