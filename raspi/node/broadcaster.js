@@ -1,11 +1,19 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.raw({ inflate: true, limit: '100mb', type: 'image/jpeg' }));
 
 const PORT = 18082;
+
+let latitude = null;
+let longitude = null;
+let numSatelites = null;
+let seaLevel = null;
+let geoid = null;
+let hmsJst = null;
 
 function sendResp(res, err, doc) {
   if (err) {
@@ -76,18 +84,32 @@ app.post('/broadcast/:serivceId', (req, res) => {
 
 app.post('/sensor/:serivceId/gps', (req, res) => {
   let serivceId = req.params.serivceId;
-  let latitude = req.query.latitude;
-  let longitude = req.query.longitude;
-  let numSatelites = req.query.numSatelites;
-  let seaLevel = req.query.sealevel;
-  let geoid = req.query.geoid;
-  let hmsJST = req.query.datetime;
+  latitude = req.query.latitude;
+  longitude = req.query.longitude;
+  numSatelites = req.query.numSatelites;
+  seaLevel = req.query.sealevel;
+  geoid = req.query.geoid;
+  hmsJst = req.query.hmsJst;
   console.log(req.query);
   sendResp(res, false, null);
 });
 
-app.get('/sensor/:serviceId/gps', (req, res) => {
-  // TODO
+app.get('/sensor/gps/:serviceId', (req, res) => {
+  if (latitude != null) {
+    res.json({
+      latitude: latitude,
+      longitude: longitude,
+      numSatelites: numSatelites,
+      seaLevel: seaLevel,
+      geoid: geoid,
+      hmsJst: hmsJst});
+  } else {
+    sendResp(res, true, null);
+  }
+});
+
+app.get('/map/:serviceId', (req, res) => {
+  res.sendFile(path.join(__dirname + '/webapp/map.html'));
 });
 
 // Start this broadcaster

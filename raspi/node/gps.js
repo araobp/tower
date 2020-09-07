@@ -68,8 +68,8 @@ parser.on('data', data => {
     } else {
       h = hInt.toString();
     }
-    let hmsJST = h + m + s;
-    console.log('HHmmss: ', hmsJST);
+    let hmsJst = h + m + s;
+    console.log('HHmmss: ', hmsJst);
     console.log('status: ', status);
     console.log('longitude', ns, longitude);
     console.log('latitude', ew, latitude);
@@ -77,7 +77,7 @@ parser.on('data', data => {
     console.log('direction: ', direction);
 
     if (fixQuality == GPS_FIX) {
-      options.url = url + '?longitude=' + ew + longitude + '&latitude=' + ns + latitude + '&numSatelites=' + numSatelites + '&sealevel=' + seaLevel + '&geoid=' + geoid + '&timeJst=' + hmsJST; 
+      options.url = url + '?longitude=' + ew + longitude + '&latitude=' + ns + latitude + '&numSatelites=' + numSatelites + '&sealevel=' + seaLevel + '&geoid=' + geoid + '&hmsJst=' + hmsJst; 
 
       request(options, (err, res, body) => {
       //console.log(res);
