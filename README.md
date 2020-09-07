@@ -110,6 +110,8 @@ Message sequence diagram:
 
 => [gps.js (javascript/node.js)](./raspi/node/gps.js)
 
+=> [map.html](./raspi/node/webapp/map.html)
+
 => [Chrome launcher (Kotlin/Android)](./android)
 
 Sequence diagram
