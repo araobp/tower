@@ -43,6 +43,7 @@ The tower consists of a PVC water pipe sitting vertically and platforms on which
 
 - [panhead](./blender/panhead.stl)
 - [hook](./blender/hook.stl)
+- [Raspberry Pi case support](./blender/raspi.stl)
 
 ## AI Webcam
  
