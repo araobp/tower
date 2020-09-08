@@ -54,7 +54,7 @@ class AiWebCamDiscovery(val context: Context) {
                 Log.d(TAG, "Multicast lock acquisition failed")
             }
 
-            callback.onResult(err, "http://$serverIpAddress:$AI_WEBCAM_PORT/broadcast/$serviceId")
+            callback.onResult(err, "http://$serverIpAddress:$AI_WEBCAM_PORT/map/$serviceId")
         }
     }
 }
