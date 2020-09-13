@@ -7,12 +7,12 @@ This is a sensor tower for IoT:
 - GPS
 - Sensors
 
-## Features
+## Goal
 
-- AI webcam: integration with OpenCV and TensorFlow Lite
-- Intrusion detection
-- Auto discovery of web cam's IP address in a LAN segment
-- MotionJPEG broadcasting server
+- AI webcam: integration with OpenCV and TensorFlow Lite => Completed
+- Intrusion detection => Completed
+- Auto discovery of web cam's IP address in a LAN segment => Completed
+- MotionJPEG broadcasting server => Completed
 - Optional features: low-power wireless, temperature/humidity sensor etc..
 - ALPR???
 
